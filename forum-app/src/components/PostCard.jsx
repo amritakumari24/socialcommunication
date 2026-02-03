@@ -61,13 +61,13 @@ function PostCard({ post }) {
     <Link to={`/posts/${post.id}`} className="post-card">
       <div className="post-header">
         <img 
-          src={post.author.avatar} 
-          alt={post.author.displayName}
+          src={post.author?.avatar || 'https://api.dicebear.com/7.x/avataaars/svg?seed=default'} 
+          alt={post.author?.displayName || 'Anonymous'}
           className="avatar"
         />
         <div className="post-meta">
-          <h3 className="post-author">{post.author.displayName}</h3>
-          <span className="post-username">@{post.author.username}</span>
+          <h3 className="post-author">{post.author?.displayName || 'Anonymous User'}</h3>
+          <span className="post-username">@{post.author?.username || 'anonymous'}</span>
           <span className="post-date">{formatDate(post.createdAt)}</span>
         </div>
       </div>
